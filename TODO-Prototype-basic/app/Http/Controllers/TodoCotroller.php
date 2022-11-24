@@ -14,12 +14,12 @@ class TodoCotroller extends Controller
             "success" => 200,
             "data" => $data
         ]);
+        /* return view('indexTodo', compact('data')); */
     }
 
     public function insertTodo(Request $req)
     {
         $obj = new Todo();
-
         $obj->name = $req->name;
         $obj->save();
         return redirect('/');
@@ -27,20 +27,18 @@ class TodoCotroller extends Controller
 
     public function editTodo($id)
     {
-
-        $data = Todo::where('id', $id)->get();
-        return view('editTodo', compact('data'));
+        $todo = Todo::where('id', $id)->get();
+        return view('/editTodo', compact('todo'));
     }
 
     public function updateTodo(Request $req, $id)
     {
-        $todo = Todo::where('id', $id)->update(['name' => $req->name]);
+        Todo::where('id', $id)->update(['name' => $req->name]);
         return redirect('/');
     }
 
-    public function deleteTodo(Request $req)
-    {
-        Todo::where('id', $req->id)->delete();
+    public function deleteTodo($id){
+        Todo::where('id', $id)->delete();
         return redirect('/');
     }
 }

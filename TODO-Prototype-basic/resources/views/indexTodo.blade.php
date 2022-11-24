@@ -8,22 +8,22 @@
 </head>
 <body>
     <form method="post" action="{{url('insertTodo')}}">
-        @csrf
-        <p>Todos</p>
-        <input type="text" name="name" >
-        <input type="submit" value="submit">
+    @csrf
+    <p>Todo list</p>
+    <input type="text" name="name">
+    <input type="submit" value="submit">
     </form>
 
     @foreach($data as $row)
     <table>
         <tr>
-            <th>Name</th>
+            <th>name</th>
             <th>action</th>
         </tr>
         <tr>
             <td>{{$row->name}}</td>
             <td>
-                <a href="{{url("editTodo")}}/{{$row->id}}"><button>Edit</button></a>
+                <a href="{{url('editTodo')}}/{{$row->id}}"><button>Edit</button></a>
             </td>
             <td>
                 <a href="{{url('deleteTodo')}}/{{$row->id}}"><button>Delete</button></a>

@@ -7,12 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    @foreach($data as $row)
+    @foreach($todo as $row)
     <form method="post" action="{{url('updateTodo')}}/{{$row->id}}">
     @csrf
-    <p>Todo edit</p>
     <input type="text" name="name" value="{{$row->name}}">
-    <input type="submit" value="edit">
+    <input type="submit" value="update">
     </form>
     @endforeach
 </body>

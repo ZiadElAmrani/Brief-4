@@ -15,3 +15,9 @@ use App\Http\Controllers\TodoCotroller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/', [TodoCotroller::class, 'indexTodo']);
+Route::post('/insertTodo', [TodoCtroller::class, 'insertTodo']);
+Route::get('/editTodo/{id}', [TodoCotroler::class, 'editTodo']);
+Route::post('/updateTodo/{id}', [TodoCotroller::class, 'updateTodo']);
+Route::get('deleteTodo/{id}', [TodoCotroller::class, 'deleteTodo']);
