@@ -10,10 +10,7 @@ class TodoCotroller extends Controller
     public function indexTodo()
     {
         $data = Todo::all();
-        return response()->json([
-            "success" => 200,
-            "data" => $data
-        ]);
+        return response()->json($data);
         /* return view('indexTodo', compact('data')); */
     }
 
@@ -22,7 +19,6 @@ class TodoCotroller extends Controller
         $obj = new Todo();
         $obj->name = $req->name;
         $obj->save();
-        return redirect('/');
     }
 
     public function editTodo($id)
