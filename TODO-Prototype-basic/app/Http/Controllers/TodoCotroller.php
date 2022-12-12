@@ -30,11 +30,9 @@ class TodoCotroller extends Controller
     public function updateTodo(Request $req, $id)
     {
         Todo::where('id', $id)->update(['name' => $req->name]);
-        return redirect('/');
     }
 
     public function deleteTodo($id){
         Todo::where('id', $id)->delete();
-        return redirect('/');
     }
 }
